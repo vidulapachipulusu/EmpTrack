@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EmpTrack - Employee Report Generator</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="logo">
+                <i class="fas fa-chart-line"></i>
+                <span>EmpTrack</span>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="#home" class="nav-link">Home</a></li>
+                <li><a href="#features" class="nav-link">Features</a></li>
+                <li><a href="#tasks" class="nav-link">Tasks</a></li>
+                <li><a href="#demo" class="nav-link">Demo</a></li>
+                <li><a href="#contact" class="nav-link">Contact</a></li>
+            </ul>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1>EmpTrack</h1>
+            <p>Intelligent Employee Report Generation System</p>
+            <p class="subtitle">Process employee data efficiently with Stream API, File Handling, and Serialization</p>
+            <a href="#features" class="btn btn-primary">Explore Features</a>
+            <a href="https://github.com/vidulapachipulusu/EmpTrack" target="_blank" class="btn btn-secondary">View on GitHub</a>
+        </div>
+        <div class="hero-image">
+            <i class="fas fa-users"></i>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="features">
+        <div class="container">
+            <h2>Key Features</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-stream"></i>
+                    </div>
+                    <h3>Stream API Processing</h3>
+                    <p>Process employee data using modern Java Stream API without any for loops. Filter, map, and aggregate data efficiently.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-file-alt"></i>
+                    </div>
+                    <h3>Report Generation</h3>
+                    <p>Generate formatted department and summary reports with BufferedWriter. Beautiful, professional output with automatic formatting.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-save"></i>
+                    </div>
+                    <h3>Serialization & Backup</h3>
+                    <p>Backup employee data to binary files using ObjectOutputStream and restore with ObjectInputStream for data integrity.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-code"></i>
+                    </div>
+                    <h3>JSON Export/Import</h3>
+                    <p>Export employee data to JSON format and import it back. Manual JSON parsing demonstrates core serialization concepts.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-lock"></i>
+                    </div>
+                    <h3>Data Security</h3>
+                    <p>Transient fields ensure sensitive data (auth tokens) are never serialized. Control what gets backed up and restored.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-chart-bar"></i>
+                    </div>
+                    <h3>Department Analytics</h3>
+                    <p>Group employees by department, calculate salary bills, find promotion-eligible employees, and more with advanced filtering.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tasks Section -->
+    <section id="tasks" class="tasks">
+        <div class="container">
+            <h2>Implementation Tasks</h2>
+            <div class="tasks-container">
+                <div class="task-card">
+                    <div class="task-header">
+                        <h3>Task 1: Stream-Based Employee Processing</h3>
+                        <span class="badge">Java Streams</span>
+                    </div>
+                    <ul class="task-list">
+                        <li><strong>Employee Class:</strong> Private fields with getters, setters, toString()</li>
+                        <li><strong>EmployeeProcessor:</strong> 7 stream-based methods
+                            <ul>
+                                <li>getActiveEmployees()</li>
+                                <li>getByDepartment(String dept)</li>
+                                <li>getAverageSalary()</li>
+                                <li>getHighestPaid()</li>
+                                <li>getSalaryBill(String dept)</li>
+                                <li>groupByDepartment()</li>
+                                <li>getEligibleForPromotion()</li>
+                            </ul>
+                        </li>
+                        <li><strong>Sample Data:</strong> 10+ employees across 3 departments</li>
+                    </ul>
+                    <div class="questions">
+                        <p><strong>🤔 Questions:</strong></p>
+                        <ul>
+                            <li>OptionalDouble vs Optional&lt;Double&gt; - why mapToDouble().average() returns OptionalDouble?</li>
+                            <li>Does order of filter() and sorted() affect results and performance?</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="task-card">
+                    <div class="task-header">
+                        <h3>Task 2: File Handling & Report Writing</h3>
+                        <span class="badge">File I/O</span>
+                    </div>
+                    <ul class="task-list">
+                        <li><strong>ReportWriter Class:</strong>
+                            <ul>
+                                <li>writeDepartmentReport()</li>
+                                <li>writeFullReport()</li>
+                                <li>writeSummaryReport()</li>
+                            </ul>
+                        </li>
+                        <li><strong>ReportReader Class:</strong> BufferedReader to display reports</li>
+                        <li><strong>Formatted Output:</strong> Professional report templates</li>
+                        <li><strong>Error Handling:</strong> Auto-create directories if missing</li>
+                    </ul>
+                    <div class="questions">
+                        <p><strong>🤔 Questions:</strong></p>
+                        <ul>
+                            <li>Why is BufferedWriter needed? Impact of direct FileWriter with 500 records?</li>
+                            <li>Overwrite vs Append behavior - file path handling</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="task-card">
+                    <div class="task-header">
+                        <h3>Task 3: Serialization & JSON Backup</h3>
+                        <span class="badge">Serialization</span>
+                    </div>
+                    <ul class="task-list">
+                        <li><strong>Employee Serialization:</strong> Implements Serializable with serialVersionUID</li>
+                        <li><strong>EmployeeBackup Class:</strong>
+                            <ul>
+                                <li>serialize() - ObjectOutputStream to .ser file</li>
+                                <li>deserialize() - ObjectInputStream restoration</li>
+                                <li>Verification logic</li>
+                            </ul>
+                        </li>
+                        <li><strong>Transient Fields:</strong> authToken exclusion from serialization</li>
+                        <li><strong>JsonExporter:</strong> Manual JSON generation (no libraries)</li>
+                        <li><strong>JsonImporter:</strong> Manual JSON parsing with String.split()</li>
+                    </ul>
+                    <div class="questions">
+                        <p><strong>🤔 Questions:</strong></p>
+                        <ul>
+                            <li>Transient int retryCount = 3 after deserialization - what value?</li>
+                            <li>serialVersionUID behavior with schema changes</li>
+                            <li>Manual vs Library JSON parsing - robustness trade-offs</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Demo Section -->
+    <section id="demo" class="demo">
+        <div class="container">
+            <h2>Sample Output</h2>
+            <div class="demo-content">
+                <div class="demo-box">
+                    <h3>Department Report Output</h3>
+                    <pre><code>============================================
+ DEPARTMENT REPORT: Engineering
+ Generated: 2025-06-15
+============================================
+ ID       NAME              DESIGNATION       SALARY
+--------------------------------------------
+ EMP-001  Rahul Sharma      Senior Developer  85,000
+ EMP-002  Ananya Iyer       Junior Developer  42,000
+--------------------------------------------
+ Headcount : 2
+ Total Bill : 1,27,000
+ Avg Salary : 63,500
+============================================</code></pre>
+                </div>
+
+                <div class="demo-box">
+                    <h3>JSON Export Format</h3>
+                    <pre><code>[
+  {
+    "employeeId": "EMP-001",
+    "name": "Rahul Sharma",
+    "department": "Engineering",
+    "salary": 85000,
+    "isActive": true
+  },
+  {
+    "employeeId": "EMP-002",
+    "name": "Ananya Iyer",
+    "department": "Engineering",
+    "salary": 42000,
+    "isActive": true
+  }
+]</code></pre>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Architecture Section -->
+    <section class="architecture">
+        <div class="container">
+            <h2>Project Architecture</h2>
+            <div class="arch-diagram">
+                <div class="arch-box">
+                    <div class="arch-item">
+                        <i class="fas fa-database"></i>
+                        <p>Employee Data</p>
+                    </div>
+                    <div class="arrow">→</div>
+                    <div class="arch-item">
+                        <i class="fas fa-stream"></i>
+                        <p>Stream Processing</p>
+                    </div>
+                    <div class="arrow">→</div>
+                    <div class="arch-item">
+                        <i class="fas fa-file-export"></i>
+                        <p>Reports & Exports</p>
+                    </div>
+                </div>
+                <div class="arch-details">
+                    <div class="detail-item">
+                        <h4>Data Layer</h4>
+                        <p>Employee class with complete encapsulation</p>
+                    </div>
+                    <div class="detail-item">
+                        <h4>Processing Layer</h4>
+                        <p>EmployeeProcessor with Stream API operations</p>
+                    </div>
+                    <div class="detail-item">
+                        <h4>I/O Layer</h4>
+                        <p>ReportWriter, ReportReader, Backup & Export modules</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tech Stack Section -->
+    <section class="tech-stack">
+        <div class="container">
+            <h2>Technology Stack</h2>
+            <div class="tech-items">
+                <div class="tech-item">
+                    <i class="fab fa-java"></i>
+                    <h3>Java 8+</h3>
+                    <p>Stream API, Lambda Expressions</p>
+                </div>
+                <div class="tech-item">
+                    <i class="fas fa-file"></i>
+                    <h3>File I/O</h3>
+                    <p>BufferedReader, BufferedWriter</p>
+                </div>
+                <div class="tech-item">
+                    <i class="fas fa-shield-alt"></i>
+                    <h3>Serialization</h3>
+                    <p>ObjectInputStream, ObjectOutputStream</p>
+                </div>
+                <div class="tech-item">
+                    <i class="fas fa-json"></i>
+                    <h3>JSON Handling</h3>
+                    <p>Manual parsing & generation</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Interactive Demo Section -->
+    <section class="interactive-demo">
+        <div class="container">
+            <h2>Try It Out</h2>
+            <div class="demo-interface">
+                <div class="input-section">
+                    <h3>Employee Search & Filter</h3>
+                    <div class="input-group">
+                        <input type="text" id="searchInput" placeholder="Search employee name..." class="input-field">
+                        <select id="departmentFilter" class="input-field">
+                            <option value="">All Departments</option>
+                            <option value="Engineering">Engineering</option>
+                            <option value="HR">HR</option>
+                            <option value="Finance">Finance</option>
+                        </select>
+                        <button onclick="filterEmployees()" class="btn btn-primary">Filter</button>
+                    </div>
+                </div>
+                <div class="output-section">
+                    <h3>Results</h3>
+                    <div id="results" class="results-box">
+                        <p>Enter search criteria to see results...</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2>Get Started</h2>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <h3>Clone the Repository</h3>
+                    <pre><code>git clone https://github.com/vidulapachipulusu/EmpTrack.git
+cd EmpTrack</code></pre>
+                </div>
+                <div class="contact-info">
+                    <h3>Compile & Run</h3>
+                    <pre><code>javac src/*.java
+java -cp src Main</code></pre>
+                </div>
+                <div class="contact-info">
+                    <h3>Project Links</h3>
+                    <ul class="social-links">
+                        <li><a href="https://github.com/vidulapachipulusu/EmpTrack" target="_blank"><i class="fab fa-github"></i> GitHub Repository</a></li>
+                        <li><a href="https://github.com/vidulapachipulusu" target="_blank"><i class="fab fa-github"></i> Developer Profile</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 EmpTrack - Employee Report Generator. All rights reserved.</p>
+            <p>Built with Java, Stream API, and File I/O Excellence</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
